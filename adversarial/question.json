@@ -1,6 +1,13 @@
 [
-  {
-    "text": "The reciprocal of what quantity was estimated to be .9 higher than the three-digit integer value popularly associated with it in 1916 experiments conducted by a Brandenburg-based researcher? That researcher also hosted Ho Zah-wei ( 何泽慧 ) in his home; she would later go on to lead the neutron flux team of the Chinese nuclear program.",
-    "answer": ["Sommerfeld_constant", "Fine-structure_constant","Rydberg_constant","Planck_constant"]
-  }
+    {
+	"type": "pyramidal",
+	"text": "  Measurements of this were conducted in 1916 by a Brandenburg-based researcher who hosted  Ho Zah-wei, who would later go on to lead the neutron flux team of the Chinese nuclear program.  Those experiments estimated that the reciprocal of this quantity was .9 higher than the three-digit integer value popularly associated with it.  For 10 points, name this constant symbolized by $\alpha$ that controls strength of the electromagnetic interaction between elementary charged particles, approximated as 1 over 137.",
+	"answer": "Fine-structure_constant"
+    },
+    {
+	"type": "mc",
+	"text": "The researcher who lead the neutron flux team of the Chinese nuclear program helped a Brandenburg-based researcher estimate the reciprocal of what quantity to be .9 higher than the three-digit integer value popularly associated with it in 1916 experiments?",
+	"choices": ["Proton to Electron Mass Ratio", "Fine-structure_constant","Rydberg_constant","Planck_constant"],
+	"answer": "Fine-structure_constant"
+    }
 ]

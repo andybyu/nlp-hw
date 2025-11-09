@@ -161,3 +161,7 @@ Also, humans don't memorize a lot of dates.  Some things are tightly tied to dat
 *Q:* What computers should ~not~ be able to answer the questions?
 
 *A:* It's okay if some computers can't answer the questions.  But clearly it would be better if all computers cannot answer the question.  Even better is if they all fail in different ways.  We're not going to focus on particular systems and say that, for instance, it must absolutely stump ChatGPT.
+
+*Q:* How many total questions do I need to submit?
+
+*A:* Each person is responsible for writing one pyramidal question (tossup) and one multiple choice question.  So if you have a group of three, that's three pyramidal questions and three multiple choice questions.  
