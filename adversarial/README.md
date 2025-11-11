@@ -8,8 +8,7 @@ Tools to Write Your Question
 Here are some techniques to write questions systems cannot answer:
 https://www.youtube.com/watch?v=6oZCIOBiSaI
 
-You can see a previous competition we ran here:
-https://sites.google.com/view/qanta/past-events/dec-15-2018?authuser=0
+You can see a [youtube.com/watch?list=PLegWUnz91WfsBdgqm4wrwdgtPV-QsndlO&si=QulAvORs30rHWr4c&embeds_referring_euri=https%3A%2F%2F1227273660-atari-embeds.googleusercontent.com%2F&source_ve_path=Mjg2NjQsMTY0NTA2&v=5sYXzNE07nM&feature=youtu.be previous competition we ran].
 
 You are free to download/use any QA systems you'd like or to use them on the web.  Some ideas include:
 * https://you.com/
