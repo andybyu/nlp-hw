@@ -26,7 +26,7 @@ Format of the Question
 You'll create two kinds of questions:
  * One will be pyramidal, since this is the format we've been using for all of the course projects.
  * The other will be multiple choice (MC), which is the format we'll use for the final exam.
- 
+
 You are welcome to share information between the two (i.e., you can turn your
 multiple choice question into a pyramidal question).
 
@@ -40,12 +40,12 @@ How to describe your question
 A question requires about a page of explanation with the following subsections:
 
 * _Question_: The question you asked, why you thought the question is difficult for computers while not as hard for the humans, why you chose this specific topic to ask a question about. If it is pyramidial, why choose to do so?
-* _Guess_: What answer systems provided (make sure to provide details on what systems you tried against). The details may include why you chose this answer system.   
+* _Guess_: What answer systems provided (make sure to provide details on what systems you tried against). The details may include why you chose this answer system.
 * _Answer_: What the correct answer should be.  Provide sources with citations.  Wikipedia should not be used as a primary source.  Better sources are peer-reviewed articles (JSTOR is your friend and is available from UMD IPs without a fee), newspapers, books (Google books is good), etc.
 * _Guess Explanation_: Why did the AI provide the answer that it did? Connect it with why you chose this particular answer system and if the guesss it gave matches with your intent of making the question difficult. For the
 homework, this can be in general terms (but do make use of concepts like
 semantic/syntactic ambiguity that we've covered in class), but for the project
-this should be backed up with relevant citations from the NLP literature. 
+this should be backed up with relevant citations from the NLP literature.
 * _Interesting/Notability_: Why would someone find this question interesting
 or why would someone want to know the answer to this question?  Use citations
 as relevant/necessary.  Possible explanations are: surprisingness (Brian May
@@ -101,7 +101,7 @@ Turn in both a PDF of the writeup of your question and a json including the
 raw text of the question and answer to Gradescope. Both examples of both
 writeup and the json file are included in this directory.
 
-Please make sure that your JSON file passes a validator (`python question_validator.py yourfile.json`) before submitting. This file check whether JSON is in correct format and your questions (either pyramidal or multiple choice) contains text, answer, and choices (if MC). 
+Please make sure that your JSON file passes a validator (`python question_validator.py yourfile.json`) before submitting. This file check whether JSON is in correct format and your questions (either pyramidal or multiple choice) contains text, answer, and choices (if MC).
 
 There should be one tossup and one bonus for each member of the group.
 
@@ -110,7 +110,7 @@ How do I know if I have a Good Question?
 
 You should make sure that your teammates / roommates / family can answer the
 question (without knowing the answer).  You only get one chance to test a
-question for the first time, so don't waste it.  
+question for the first time, so don't waste it.
 
 Grading
 ==========
@@ -136,10 +136,14 @@ Good questions will get full points if:
 Writeups will get full points if they:
 * Cite all facts in the question with good (i.e., not Wikipedia) references
 * Clearly explain why they structured the information and the pyramidality
-  
+
 
 FAQ
 ===========
+
+*Q:* How many total questions do I need to submit?
+
+*A:* Each person is responsible for writing one pyramidal question (tossup) and one multiple choice question.  So if you have a group of three, that's three pyramidal questions and three multiple choice questions.  
 
 *Q:* Can I submit more questions?
 
@@ -147,7 +151,7 @@ FAQ
 
 *Q:* What humans should be able to answer the question?  Is it okay if it's hard?
 
-*A:* At the minimum, a skilled trivia player should be able to get the question right.  However, it's even better if more people can get the question right.  The easier the question is for an average human (let's assume American undergrad for the purposes of this exercise), the more impressive it is that a computer cannot answer it.  
+*A:* At the minimum, a skilled trivia player should be able to get the question right.  However, it's even better if more people can get the question right.  The easier the question is for an average human (let's assume American undergrad for the purposes of this exercise), the more impressive it is that a computer cannot answer it.
 
 *Q:* Do I have to use a Wikipedia page title as the answer?
 
@@ -159,10 +163,64 @@ FAQ
 
 Also, humans don't memorize a lot of dates.  Some things are tightly tied to dates (coronation of Charlemagne, Pearl Harbor, September 11), but most things are not.  So if we're looking for things that humans can answer but computers cannot, these sorts of things may be more difficult.
 
+*Q:* For an MCQ, what if the system gets the right answer for the
+wrong reason?
+
+*A:* I agree that this is
+ (https://arxiv.org/abs/2502.14127)[suboptimal].  However, it's how
+ MCQA works: accuracy is all that's measured.  Take a look at the
+ reasoning (or your distractor answers) to see how you can get it to
+ go for something that wouldn't fool a human.
+
+*Q:* What are considered valid citations?  What if I'm writing a
+ question about video games?  Or what if I want to ask a question
+ about what something looks like?
+
+*A:*: For things like this, fan-sourced wikis are usually the best /
+ only option.  You can also use a well-sourced photograph.
+
+*Q*: You say that the human skill will be computed with respect to
+ ``an average UMD student''.  Is it okay if it's something only a UMD
+ student would know?
+
+*A:* UMD-specific information is okay, but grad students and
+ professors should know what you're asking about.  Otherwise, we won't
+ be able to judge whether it is actually well known.
+
+*Q:* What information should we give about the AI answers?
+
+*A:* You only need to provide the AI answers.  If you want to provide
+ snippets of the reasoning (because it's informative or just funny),
+ that's fine too.  Often, your analysis of what the AI did will be
+ more valuable than its (potentially faulty) introspection.
+
+*Q:* Do all clues in a pyramidal question need to be uniquely
+identifying?
+
+Let's consider what the definition of pyramidal is: the question gets easier and easier such that smarter subjects can answer the question earlier.  In an extreme case, if the question is only answerable at the very end of the question, then it cannot be pyramidal.   So, yes, the first sentence needs to be uniquely identifying.  However, it is okay for subsequent sentences / clue to be less identifying.  That being said, computers often get tripped up when you explicitly exclude the ambiguity.  E.g.:
+
+```
+
+
+It's not headquartered in Biel, Switzerland, but its logo looks like the last letter of the Greek alphabet.
+It's not the protagonist of Thirty Rock, but ...
+```
+
 *Q:* What computers should ~not~ be able to answer the questions?
 
-*A:* It's okay if some computers can't answer the questions.  But clearly it would be better if all computers cannot answer the question.  Even better is if they all fail in different ways.  We're not going to focus on particular systems and say that, for instance, it must absolutely stump ChatGPT.
+*A:* It's okay if some computers can answer the questions.  But clearly it would be better if all computers cannot answer the question.  Even better is if they all fail in different ways.  We're not going to focus on particular systems and say that, for instance, it must absolutely stump ChatGPT.
 
-*Q:* How many total questions do I need to submit?
+Unfortunately, this is not so easy to quantify, as not all systems are equal.  It's obviously better to defeat "better" systems.  And if it's something that every human gets right, it's okay if fewer computers are fooled.  We care about the gap between human and computer difficulty, not the absolute computer difficulty.  
 
-*A:* Each person is responsible for writing one pyramidal question (tossup) and one multiple choice question.  So if you have a group of three, that's three pyramidal questions and three multiple choice questions.  
+*Q:* What if a system *sometimes* gets it wrong?
+
+*A:* Obviously consistently wrong is better, but if there's sufficient stochasticity that it rarely gets it right, that's okay.
+
+*Q:* What if only people with a particular background can answer the
+question?
+
+*A:* There are shades of this.  For a pyramidal question, if only Koreans can answer the question at the start but everyone can at the end, that's okay (encouraged even!).  But if only Koreans could possibly answer the question, then that will read as if it's very difficult for the "average" human (as only 1% of humanity is Korean, and I think that percentage is also consistent with UMD student population).
+
+*Q*: Do I have to use BibTeX for citations?
+
+*A:* No, but it is a good skill to have.  As long as we can track down what you're talking about, it's okay.
