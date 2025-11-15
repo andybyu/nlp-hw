@@ -137,6 +137,11 @@ Writeups will get full points if they:
 * Cite all facts in the question with good (i.e., not Wikipedia) references
 * Clearly explain why they structured the information and the pyramidality
 
+The grading for the assignment will have multiple components:
+*   The difference between human and computer difficulty (we will run on a selection of models and with human subjects)
+*   A qualitative examination of how well-written the question is
+*   Factual accuracy
+*   The insight / completeness of the writeup
 
 FAQ
 ===========
