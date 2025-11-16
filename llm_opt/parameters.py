@@ -29,9 +29,11 @@ def add_question_params(parser):
 
 def add_buzzer_params(parser):
     from logistic_buzzer import LogisticParameters
+    from lorabert_buzzer import LoraBertParameters
     
     params = {}
     params["logistic"] = LogisticParameters()
+    params["lorabert"] = LoraBertParameters()
 
     for ii in params:
         params[ii].add_command_line_params(parser)
@@ -201,14 +203,17 @@ def load_buzzer(flags, guesser_params, load=False):
     if flags.buzzer_type == "logistic":
         from logistic_buzzer import LogisticBuzzer
         buzzer = LogisticBuzzer(flags.logistic_buzzer_filename, flags.run_length, flags.num_guesses)
-
+    if flags.buzzer_type == 'lorabert':
+        from lorabert_buzzer import LoRABertBuzzer
+        buzzer = LoRABertBuzzer(filename=flags.lorabert_buzzer_filename, run_length=flags.run_length, num_guesses=1)
+        buzzer.initialize_model(flags.lorabert_buzzer_base_model, flags.lorabert_buzzer_rank, flags.lorabert_buzzer_alpha)
     if load:
         buzzer.load()
 
     assert buzzer is not None, "Buzzer (type=%s) not initialized" % flags.buzzer_type
 
     for gg in flags.buzzer_guessers:
-        guesser = instantiate_guesser(gg, flags, guesser_params, load=True)
+        guesser = instantiate_guesser(gg, flags, load=True)
         guesser.load()
         logging.info("Adding %s to Buzzer (total guessers=%i)" % (gg, len(flags.buzzer_guessers)))
         buzzer.add_guesser(gg, guesser)
