@@ -67,6 +67,9 @@ class LoRALayer(torch.nn.Module):
 
         # Complete the initialization of the two weight matrices
         self.alpha = alpha
+        
+        self.A = ...
+        self.B = ...
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -82,8 +85,10 @@ class LoRALayer(torch.nn.Module):
             output_dimension = torch.Size((x.shape[0], self.out_dim))
 
         # Compute the low-rank delta
-
-        return delta
+        # Note that we just have \Delta W = A \cdot B
+        delta = torch.matmul(self.A, self.B) # I think this works?
+        
+        return x + delta
 
 
 class LinearLoRA(torch.nn.Module):
@@ -95,6 +100,8 @@ class LinearLoRA(torch.nn.Module):
         self.linear = linear
 
         # Initialize the LoRA layer
+        # TODO: figure out what the indim and oudtdim are!
+        self.lora = LoRALayer(in_dim=0, out_dim=0, rank=rank, alpha=alpha)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -103,6 +110,7 @@ class LinearLoRA(torch.nn.Module):
         result = self.linear(x)
 
         # Add the LoRA delta
+        result = result + self.lora.delta
         return result
 
 # TODO(jbg): Get rid of the hardcoded modules so that it generalizes to other models
@@ -117,7 +125,9 @@ def add_lora(model: torch.nn.Module, rank: int, alpha: float,
         alpha: The scaling factor for the LoRA matrices.
         modules_to_adapt: The key of the dictionary is the model component to adapt (e.g., "attention" or "ffn"), and the values are specific linear layers in that component to adapt.  Anything in this dictionary will be adapted, but anything else will remain frozen.
     """
-    
+    for component in modules_to_adapt: # component: str
+        for layer in modules_to_adapt[component]:
+            new_lora = LoRALayer(in_dim=1, out_dim=1, rank=rank, alpha=alpha)
 
     return model
                 
