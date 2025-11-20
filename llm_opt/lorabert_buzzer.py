@@ -68,8 +68,8 @@ class LoRALayer(torch.nn.Module):
         # Complete the initialization of the two weight matrices
         self.alpha = alpha
         
-        self.A = ...
-        self.B = ...
+        self.A = torch.zeros((in_dim, rank))
+        self.B = torch.zeros((rank, out_dim))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
