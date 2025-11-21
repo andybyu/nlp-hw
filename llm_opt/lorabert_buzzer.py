@@ -68,9 +68,12 @@ class LoRALayer(torch.nn.Module):
         # Complete the initialization of the two weight matrices
         self.alpha = alpha
         
-        self.A = torch.zeros((in_dim, rank))
-        self.B = torch.zeros((rank, out_dim))
-
+        # torch.nn.parameters
+        # Initialize with small random values
+        sigma = 1 / torch.sqrt(torch.tensor(rank).float())
+        self.A = torch.nn.Parameter(torch.randn(in_dim, rank) * sigma)
+        self.B = torch.nn.Parameter(torch.zeros(rank, out_dim))
+        
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Compute the linear layer's original result, then add the low-rank delta
@@ -85,10 +88,9 @@ class LoRALayer(torch.nn.Module):
             output_dimension = torch.Size((x.shape[0], self.out_dim))
 
         # Compute the low-rank delta
-        # Note that we just have \Delta W = A \cdot B
-        delta = torch.matmul(self.A, self.B) # I think this works?
+        delta = self.alpha * (x @ self.A @ self.B) # I think this works?
         
-        return x + delta
+        return delta
 
 
 class LinearLoRA(torch.nn.Module):
@@ -101,16 +103,13 @@ class LinearLoRA(torch.nn.Module):
 
         # Initialize the LoRA layer
         # TODO: figure out what the indim and oudtdim are!
-        self.lora = LoRALayer(in_dim=0, out_dim=0, rank=rank, alpha=alpha)
+        self.lora = LoRALayer(in_dim=linear.in_features, out_dim=linear.out_features, rank=rank, alpha=alpha)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass with LoRA adatpation.
         """
-        result = self.linear(x)
-
-        # Add the LoRA delta
-        result = result + self.lora.delta
+        result = self.linear(x) + self.lora(x)
         return result
 
 # TODO(jbg): Get rid of the hardcoded modules so that it generalizes to other models
