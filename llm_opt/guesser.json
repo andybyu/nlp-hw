@@ -1,0 +1,160 @@
+{
+  "query_generator": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "A future monarch of this country refused the throne of Greece, believing Greece was too unstable to be a viable monarchy.",
+        "query": "Why did a future monarch of Greece refuse the throne?"
+      },
+      {
+        "augmented": true,
+        "question": "The Spanish Marches were set up as a buffer zone by a ruler of this dynasty who employed the historian (*) Paul the Deacon.",
+        "query": "Who was the ruler of the dynasty who employed Paul the Deacon to set up the Spanish Marches as a buffer zone?"
+      },
+      {
+        "augmented": true,
+        "question": "This thinker blamed imperialism and anti-Semitism for originating a form of \"radical evil.\"",
+        "query": "Explain the concept of \"radical evil\" as described in the provided text."
+      },
+      {
+        "question": "For 10 points, name this author of Seven Gothic Tales and Out of Africa.",
+        "answer": "Karen_Blixen"
+      }
+    ],
+    "signature": {
+      "instructions": "Given the fields `question`, produce the fields `query`.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Query:",
+          "description": "${query}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "guess_generator.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "A contest to kill 100 people with a sword took place after this city was captured in 1937 from Chiang Kai-shek's army.",
+        "context": "China: Old Questions: For 10 points, name this country home to the Soong sisters, one of whom became Madame Chiang Kai-shek.\nMao_Zedong: Old Questions: This man's army defeated that of Nationalist Chiang Kai-shek, who escaped to Taiwan.\nSun_Yat-sen: Old Questions: For 10 points, name this Chinese nationalist leader, succeeded by Chiang Kai-Shek.\nWorld_War_II: Old Questions: Joseph (*) Stilwell advised Chiang Kai-shek during this war.\nTaipei: Old Questions: For ten points, name this island to which Chiang Kai Shek fled, formerly known as Formosa.\n",
+        "reasoning": "The context provides clues relating to a specific event and location. The mention of a contest to kill 100 people with a sword after a city capture, combined with the context surrounding Chiang Kai-shek, strongly points to the Second Sino-Japanese War and the fall of Nanjing in 1937.",
+        "answer": "Nanjing"
+      },
+      {
+        "augmented": true,
+        "question": "Its second book opens by distinguishing ideas from adequate ideas, and posits that all material things have a parallel idea.",
+        "context": "An_Essay_Concerning_Human_Understanding: Old Questions: Its second book deals with ideas, and the third with words.\nCivilization_and_Its_Discontents: Old Questions: Some of the ideas in this work were first presented in its author's earlier work The Future of an Illusion.\nCharles_Darwin: Old Questions: The aim of Thomas Nagel's Mind and Cosmos is to explain how arguments stemming from this man's ideas fail to explain the (*) origins of mental phenomena, while the argument that those ideas fail to explain \"irreducible complexity\" was presented in Kitzmiller v. Dover.\nEternal_return: Old Questions: The concept of \"hierophany\" is presented in a book which discusses the function of (*) myth as essentially propagating this concept; that book is by Mircea Eliade.\nJohn_Locke: Old Questions: He introduced the concept of an association of ideas in one work.\n",
+        "reasoning": "The question describes a work that distinguishes between \"ideas from adequate ideas\" and posits that all material things have a parallel idea. This aligns closely with the philosophical work of John Locke, specifically his *Essay Concerning Human Understanding*, particularly Book II.",
+        "answer": "John_Locke"
+      },
+      {
+        "question": "Synthesis of thiophenols from phenols can be performed using one of these reactions named for Newman and Kwart.",
+        "answer": "Rearrangement_reaction"
+      },
+      {
+        "question": "A different artist with this surname painted a sacra conversazione which features Job with a pink loincloth and St. Louis of Toulouse.",
+        "answer": "Giovanni_Bellini"
+      }
+    ],
+    "signature": {
+      "instructions": "Given the fields `question`, `context`, generate the fields `answer` based on the provided context and reasoning. Ensure the response is a single, concise answer.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Context:",
+          "description": "${context}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "confidence_generator": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "An attempt to use this technique failed because cities don't actually hire more police officers during election years.",
+        "query": "Why don't cities hire more police officers during election years?",
+        "context": "Traffic_light: Old Questions: In the 1920s, these devices made redundant some fifty-five hundred New York City police officers.\nHaymarket_affair: Old Questions: Eight police officers died, leading to the trial of eight anarchists, none of whom had thrown the bomb that led to the police officers' deaths near the McCormick plant.\nChicago: Old Questions: Frank Kusch described sitting down with many of this city's police officers in his book Battleground: [this city].\nUnite_the_Right_Rally: Old Questions: During this event, a synagogue was forced to hire private security after local police refused to station an officer nearby.\nMughal_Empire: Old Questions: Military officers in this empire were called mansabdars.\n",
+        "guess": {
+          "reasoning": "The context discusses attempts to use a technique that failed due to the lack of increased police hiring during election years. This points to the influence of political factors on police staffing.",
+          "answer": "Political_influence"
+        },
+        "confidence": 0.95
+      },
+      {
+        "augmented": true,
+        "question": "The haunting music first heard in its opening sequence comes from a \"choir-organ\" played by Florian Fricke's band.",
+        "query": "What instrument is the haunting music in the opening sequence of the game *H.R. Giger's Necrosyl* played by?",
+        "context": "Dragon_Quest: Old Questions: It was also the first game to have its music played live by an orchestra.\nDouble_Bass: Old Questions: This instrument plays the opening notes of \"So What.\"\nNone: Old Questions: Sections from this album were played live during the Mary Poppins sequence of the London 2012 (*) Opening Ceremony.\nSouth_Africa: Old Questions: In this country, street music called (*) kwela is played on the pennywhistle.\nTango: Old Questions: The music for this dance is usually played by a bandoneon.\n",
+        "guess": {
+          "reasoning": "The context describes music from a video game. The mention of a \"choir-organ\" played by Florian Fricke’s band strongly suggests the game is *Legend of Mana*.",
+          "answer": "Legend_of_Mana"
+        },
+        "confidence": 0.95
+      },
+      {
+        "question": "Liszt often ended his concerts with a virtuosic \"grand chromatique\" piece of this type.",
+        "answer": "Galop"
+      },
+      {
+        "question": "This man, who retreated at the Battle of Long Island, allegedly gave William Prescott the order to inform his troops \"Don't fire until you see the whites of their eyes.\"",
+        "answer": "Israel_Putnam"
+      }
+    ],
+    "signature": {
+      "instructions": "Generate a confidence score (between 0 and 1) reflecting the certainty of the generated answer, based on the provided question, query, context, and guess.  Provide a concise explanation for the confidence score.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Query:",
+          "description": "${query}"
+        },
+        {
+          "prefix": "Context:",
+          "description": "${context}"
+        },
+        {
+          "prefix": "Guess:",
+          "description": "${guess}"
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "${confidence}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}
