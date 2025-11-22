@@ -1,0 +1,57 @@
+add all llm_opt and data folders from the GitHub to google drive in order to run. 
+https://drive.google.com/drive/folders/1A-DGggkryecZyGhhAmOXOby4U13YpEoq?usp=sharing
+is link to my drive stuff cuz the pkl files in llm_opt/models is too large for me to upload to GitHub. 
+
+open up google collab and
+in a random notebook, run:
+from google.colab import drive
+drive.mount('/content/drive')
+
+import nltk
+nltk.download('punkt_tab')
+
+
+After connecting to drive in previous step, run   (cd will have to be changed for you cuz probably different directory)
+cd drive/MyDrive/llm_opt/
+pip install -r requirements.txt
+sudo apt-get update
+sudo apt-get install -y pciutils
+lspci | grep -i nvidia
+curl -fsSL https://ollama.com/install.sh | sh
+nohup ollama serve > /dev/null 2>&1 &
+ollama pull gemma3:4b
+
+in order to set things for using ollama
+
+
+GUESSER (run in command line)
+the two following are for setting up the tfidf and Wikipedia .pkl files
+python guesser.py --guesser_type=Tfidf --question_source=gzjson --questions=../data/qanta.guesstrain.json.gz --logging_file=guesser.log
+python guesser.py --guesser_type=Wiki --question_source=json --questions=../data/wiki_page_text.json --logging_file=guesser.log --limit=10
+
+python ollama_guesser.py
+
+
+BUZZER
+python lorabert_buzzer.py --questions=../data/qanta.buzztrain.json.gz --secondary_questions=../data/qanta.buzzdev.json.gz --buzzer_guessers=Tfidf --load=True --buzzer_type='lorabert' --limit=100
+
+idk how buzzer works so dont trust by buzzer command
+
+
+in feateng aka buzzer
+params & features.py
+use eval.py
+
+submitting
+lorabert.model
+parameters.py
+lorabert_buzzer.py
+#####
+
+in tfidfgueser 
+submit ollama_guesser.py
+json
+params.py used
+
+
+
