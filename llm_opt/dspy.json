@@ -1,0 +1,160 @@
+{
+  "query_generator": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "question": "For 10 points, name this functional group that is a terminal carbonyl.",
+        "answer": "Aldehyde"
+      },
+      {
+        "question": "The right foreground of this painting shows a blue-skinned man grabing a woman whose mouth is spilling wildflowers; that is this painting's depiction of Chloris and Zephyrus.",
+        "answer": "Primavera_(painting)"
+      },
+      {
+        "question": "In this novel's epilogue, the narrator visits a chapel and remarks on a \"small red flame\" burning, which \"could not have been lit but for the builders and the tragedians.\"",
+        "answer": "Brideshead_Revisited"
+      },
+      {
+        "question": "Rhabdoid tumors and choroid plexus carcinoma are linked to mutations in a gene which regulates this substance known as SMARCB1.",
+        "answer": "Chromatin"
+      }
+    ],
+    "signature": {
+      "instructions": "Given the fields `question`, produce the fields `query`.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Query:",
+          "description": "${query}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "guess_generator.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "Along with the clarinet, it represents the title trickster in Richard Strauss's Till Eulenspiegel's Merry Pranks.",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
+        "reasoning": "The question refers to a “title trickster” in a Richard Strauss symphony. The symphony is “Till Eulenspiegel’s Merry Pranks”. The trickster is Daco-Romanian.",
+        "answer": "Daco-Romanian"
+      },
+      {
+        "augmented": true,
+        "question": "One of his albums features the first recording of the Miles Davis composition \"Nardis.\"",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
+        "reasoning": "The question refers to a composer who recorded \"Nardis.\" The context provides information about Daco-Romanian, a language related to Dalmatian and spoken in Bucharest. The key piece of information is the recording of \"Nardis,\" which strongly suggests the answer is Miles Davis.",
+        "answer": "Miles_Davis"
+      },
+      {
+        "augmented": true,
+        "question": "This city banned the sale of alcohol in response to a riot that erupted over the death of a construction worker in Little India.",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
+        "reasoning": "The question describes a city that banned alcohol due to a riot following the death of a construction worker in Little India. This points to Mumbai, India.",
+        "answer": "Mumbai"
+      },
+      {
+        "question": "For 10 points, name this dynasty of Byzantine Emperors, which conducted its namesake \"restoration\" under Alexios I.",
+        "answer": "Komnenos"
+      }
+    ],
+    "signature": {
+      "instructions": "You are a historian specializing in the Dutch-Japanese exchange during the Edo period. Given the question and the provided context, accurately answer the question regarding the Netherlands' role in Japan, utilizing your historical knowledge. Output the answer in the 'Answer:' field.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Context:",
+          "description": "${context}"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Answer:",
+          "description": "${answer}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "confidence_generator": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "question": "For 10 points, name this identification strategy that pins down causality by using an exogenous covariate of a regressor to estimate the relationship between it and the outcome of interest.",
+        "query": "Instrumental variables",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
+        "guess": {
+          "reasoning": "The question describes a strategy for identifying causality using an exogenous covariate. This method is commonly referred to as Instrumental Variables (IV) regression.",
+          "answer": "Instrumental_Variables"
+        },
+        "confidence": 0.95
+      },
+      {
+        "augmented": true,
+        "question": "The haunting music first heard in its opening sequence comes from a \"choir-organ\" played by Florian Fricke's band.",
+        "query": "What instrument is the haunting music in the opening sequence of the game *Beneath a Steel Sky* played by?",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
+        "guess": {
+          "reasoning": "The question refers to a specific musical instrument and its source. The musical instrument is a “choir-organ” played by Florian Fricke’s band. This strongly suggests the game *Myst*.",
+          "answer": "Myst"
+        },
+        "confidence": 0.95
+      },
+      {
+        "question": "Dmitry Kabalevsky composed a frequently excerpted example of these dances as the second movement of his suite The Comedians.",
+        "answer": "Galop"
+      },
+      {
+        "question": "He saw his first military action at the Battle of Lake George and, after being captured by Caughnawaga Indians while serving with Rogers Rangers near Crown Point, he narrowly escaped being roasted alive.",
+        "answer": "Israel_Putnam"
+      }
+    ],
+    "signature": {
+      "instructions": "Analyze the provided `question`, `query`, `context`, and `guess`. Determine the confidence level of the generated answer and return the confidence score as a floating-point number between 0 and 1.",
+      "fields": [
+        {
+          "prefix": "Question:",
+          "description": "${question}"
+        },
+        {
+          "prefix": "Query:",
+          "description": "${query}"
+        },
+        {
+          "prefix": "Context:",
+          "description": "${context}"
+        },
+        {
+          "prefix": "Guess:",
+          "description": "${guess}"
+        },
+        {
+          "prefix": "Confidence:",
+          "description": "${confidence}"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "3.0.4",
+      "cloudpickle": "3.1"
+    }
+  }
+}
