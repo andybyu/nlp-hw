@@ -60,7 +60,7 @@ def validate_answer(example: dspy.Example, pred, trace=None):
         return - 3 * (pred.confidence ** 2)
 
    
-class CalibratedRAG(dspy.Module):
+class p(dspy.Module):
     def __init__(self):
 
         class QueryGenerator(dspy.Signature):
@@ -119,6 +119,24 @@ class CalibratedRAG(dspy.Module):
     
 class OllamaDspy(Guesser):
     def __init__(self, params: Parameters):
+        self._lm = dspy.LM(
+            f"ollama_chat/{params.ollama_guesser_model}",
+            api_base=params.ollama_guesser_api,
+            api_key=""
+        )
+        dspy.configure(lm=self._lm)
+
+        
+        self._lm = dspy.LM(
+            f"ollama_chat/gemma3:4b",
+            api_base= 'http://localhost:11434',
+            api_key=""
+        )
+        dspy.configure(lm=self._lm)
+
+        # self._lm = dspy.LM('ollama_chat/%s' % model, api_base='http://localhost:11434', api_key='')
+        # dspy.configure(lm=self._lm)
+
         self.filename = params.ollama_guesser_filename
         self._qa_metric = validate_answer
         self._confidence_metric = lambda x, y: (x - y) ** 2
@@ -145,7 +163,7 @@ class OllamaDspy(Guesser):
     def create_dataset(questions, answers):
         return [dspy.Example(question=x, answer=y).with_inputs("question") for x, y in zip(questions, answers)]
 
-    def setup_retrieval(self, name:str, filename:str, topk:int):
+    def setup_retrieval(self, name:str, filename:str, topk:int): ## top k taken straight from params
         """
         Add a new retriever to the system.
 

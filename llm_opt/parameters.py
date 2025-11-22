@@ -152,6 +152,13 @@ def instantiate_guesser(guesser_type, flags, load):
         guesser = TfidfGuesser(flags.TfidfGuesser_filename)  
         if load:                                             
             guesser.load()
+
+    if guesser_type == "Wiki":      ## used for creating pickle files. 
+        from tfidf_guesser import TfidfGuesser         
+        guesser = TfidfGuesser(flags.WikiGuesser_filename)  
+        if load:                                             
+            guesser.load()
+            
     if guesser_type == "Dan":                                
         from dan_guesser import DanGuesser
         
@@ -174,7 +181,13 @@ def instantiate_guesser(guesser_type, flags, load):
         if flags.ollama_guesser_rag_question_model != "":
             guesser.setup_retrieval("Old Questions", flags.ollama_guesser_rag_question_model,
                                     flags.ollama_guesser_rag_question_ex)
-        
+            #adding wikidepdia as additional data
+        if flags.WikiGuesser_filename != "":
+            guesser.setup_retrieval(
+                "Wikipedia",
+                flags.WikiGuesser_filename,
+                flags.ollama_guesser_rag_question_ex   # taken from oldwuestion
+            )
         if load:
             guesser.load()
 
