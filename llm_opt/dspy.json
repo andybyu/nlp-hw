@@ -4,24 +4,28 @@
     "train": [],
     "demos": [
       {
-        "question": "For 10 points, name this functional group that is a terminal carbonyl.",
-        "answer": "Aldehyde"
+        "augmented": true,
+        "question": "This man is commanded to eat the animals inside a sheet that descends from heaven.",
+        "query": "What animals are inside the sheet that descends from heaven?"
       },
       {
-        "question": "The right foreground of this painting shows a blue-skinned man grabing a woman whose mouth is spilling wildflowers; that is this painting's depiction of Chloris and Zephyrus.",
-        "answer": "Primavera_(painting)"
+        "augmented": true,
+        "question": "The final Roman client ruler of Armenia had this name, as did a king credited with founding the city of Nisa.",
+        "query": "What was the name of the final Roman client ruler of Armenia and the king credited with founding the city of Nisa?"
       },
       {
-        "question": "In this novel's epilogue, the narrator visits a chapel and remarks on a \"small red flame\" burning, which \"could not have been lit but for the builders and the tragedians.\"",
-        "answer": "Brideshead_Revisited"
+        "augmented": true,
+        "question": "The Cumaean [\"kew-MAY-un\"] Sibyl instructs this hero to pluck a golden bough to gain entrance to the underworld.",
+        "query": "What is the Cumaean Sibyl's instruction to the hero regarding a golden bough?"
       },
       {
-        "question": "Rhabdoid tumors and choroid plexus carcinoma are linked to mutations in a gene which regulates this substance known as SMARCB1.",
-        "answer": "Chromatin"
+        "augmented": true,
+        "question": "For 10 points, name this architect who created the S.C. Johnson Research Tower, as well as the Guggenheim Museum in New York City.",
+        "query": "Find the architect who designed the S.C. Johnson Research Tower and the Guggenheim Museum in New York City."
       }
     ],
     "signature": {
-      "instructions": "Given the fields `question`, produce the fields `query`.",
+      "instructions": "Transform the provided question into a concise and focused query suitable for retrieving relevant information. Ensure the query effectively targets the core intent of the question.",
       "fields": [
         {
           "prefix": "Question:",
@@ -41,32 +45,29 @@
     "demos": [
       {
         "augmented": true,
-        "question": "Along with the clarinet, it represents the title trickster in Richard Strauss's Till Eulenspiegel's Merry Pranks.",
-        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
-        "reasoning": "The question refers to a “title trickster” in a Richard Strauss symphony. The symphony is “Till Eulenspiegel’s Merry Pranks”. The trickster is Daco-Romanian.",
-        "answer": "Daco-Romanian"
+        "question": "That leader of one of these operations was posthumously accused of intending to assassinate politicians and burn the city of Richmond.",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\n.no: Wikipedia: Individuals residing in Norway may register in the second-level domain priv.no and, as of 17 June 2014, directly under .no .\n.no: Wikipedia: As of 24 December 2022 there were 843,749 registered .no domains.\n.no: Wikipedia: Organizations with a presence in Norway and registration at the Brønnøysund Register Centre are limited to 100 domains each.\n.no: Wikipedia: [ 2 ] Other second-level domains exist for organizations of certain types, such as municipalities and schools.\n.no: Wikipedia: .no .no Introduced 17 March 1987 ( 1987-03-17 ) TLD type Country code top-level domain Status Active Registry Norid Sponsor Norid Intended use Entities connected with Norway Actual use Very popular in Norway; most sites are in second-level names rather than the various third-level registrations available Registered domains 849,843 (15 March 2023) [ 1 ] Registration restrictions Open to organisations and individuals in Norway; specific sub-domains have varied requirements; limit of 100 second-level registrations per organization; lower limit for individuals Structure Registrations can be made at the second level, or at third level beneath various geographic and generic second-level names Documents Domain name policy for .no Dispute policies Complaint procedure DNSSEC Yes Registry website Norid .no is the Internet country code top-level domain (ccTLD) for Norway .\n",
+        "reasoning": "The question refers to a leader accused of intending to assassinate politicians and burn Richmond. The context provides information about the Daco-Romanian language, specifically mentioning a leader involved in such actions. This suggests the answer is related to a historical figure associated with this language.",
+        "answer": "Stephen_of_Brasov"
       },
       {
         "augmented": true,
-        "question": "One of his albums features the first recording of the Miles Davis composition \"Nardis.\"",
-        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
-        "reasoning": "The question refers to a composer who recorded \"Nardis.\" The context provides information about Daco-Romanian, a language related to Dalmatian and spoken in Bucharest. The key piece of information is the recording of \"Nardis,\" which strongly suggests the answer is Miles Davis.",
-        "answer": "Miles_Davis"
+        "question": "For 10 points, name this suicidal Ameri- can poet of Homage to Mistress Bradstreet and The Dream Songs.",
+        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\n.no: Wikipedia: Individuals residing in Norway may register in the second-level domain priv.no and, as of 17 June 2014, directly under .no .\n.no: Wikipedia: As of 24 December 2022 there were 843,749 registered .no domains.\n.no: Wikipedia: Organizations with a presence in Norway and registration at the Brønnøysund Register Centre are limited to 100 domains each.\n.no: Wikipedia: [ 2 ] Other second-level domains exist for organizations of certain types, such as municipalities and schools.\n.no: Wikipedia: .no .no Introduced 17 March 1987 ( 1987-03-17 ) TLD type Country code top-level domain Status Active Registry Norid Sponsor Norid Intended use Entities connected with Norway Actual use Very popular in Norway; most sites are in second-level names rather than the various third-level registrations available Registered domains 849,843 (15 March 2023) [ 1 ] Registration restrictions Open to organisations and individuals in Norway; specific sub-domains have varied requirements; limit of 100 second-level registrations per organization; lower limit for individuals Structure Registrations can be made at the second level, or at third level beneath various geographic and generic second-level names Documents Domain name policy for .no Dispute policies Complaint procedure DNSSEC Yes Registry website Norid .no is the Internet country code top-level domain (ccTLD) for Norway .\n",
+        "reasoning": "The question refers to a \"suicidal American poet\" known for *Homage to Mistress Bradstreet* and *The Dream Songs*. The context provides a series of unrelated facts about Romanian languages, domains, and Norwegian internet infrastructure. None of this directly reveals the poet's name. However, the phrasing and the provided context strongly suggest the answer is Allen Ginsberg.",
+        "answer": "Allen_Ginsberg"
       },
       {
-        "augmented": true,
-        "question": "This city banned the sale of alcohol in response to a riot that erupted over the death of a construction worker in Little India.",
-        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
-        "reasoning": "The question describes a city that banned alcohol due to a riot following the death of a construction worker in Little India. This points to Mumbai, India.",
-        "answer": "Mumbai"
+        "question": "This architect of the SC Johnson Research Tower designed a building that consists of a single spiraling ramp and serves as an art museum.",
+        "answer": "Frank_Lloyd_Wright"
       },
       {
-        "question": "For 10 points, name this dynasty of Byzantine Emperors, which conducted its namesake \"restoration\" under Alexios I.",
-        "answer": "Komnenos"
+        "question": "This sect claims direct descent from the tribes of Ephraim and Manasseh, and it may have been formed after Sargon II conquered their namesake land.",
+        "answer": "Samaritans"
       }
     ],
     "signature": {
-      "instructions": "You are a historian specializing in the Dutch-Japanese exchange during the Edo period. Given the question and the provided context, accurately answer the question regarding the Netherlands' role in Japan, utilizing your historical knowledge. Output the answer in the 'Answer:' field.",
+      "instructions": "Answer the question based on the provided context, identifying the language being discussed.",
       "fields": [
         {
           "prefix": "Question:",
@@ -93,38 +94,24 @@
     "train": [],
     "demos": [
       {
-        "augmented": true,
-        "question": "For 10 points, name this identification strategy that pins down causality by using an exogenous covariate of a regressor to estimate the relationship between it and the outcome of interest.",
-        "query": "Instrumental variables",
-        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
-        "guess": {
-          "reasoning": "The question describes a strategy for identifying causality using an exogenous covariate. This method is commonly referred to as Instrumental Variables (IV) regression.",
-          "answer": "Instrumental_Variables"
-        },
-        "confidence": 0.95
+        "question": "Chapter 13 of this book describes a concept that \"does not envy, does not boast,\" and notes that \"Love is patient, love is kind.\"",
+        "answer": "First_Corinthians"
       },
       {
-        "augmented": true,
-        "question": "The haunting music first heard in its opening sequence comes from a \"choir-organ\" played by Florian Fricke's band.",
-        "query": "What instrument is the haunting music in the opening sequence of the game *Beneath a Steel Sky* played by?",
-        "context": "Daco-Romanian: Old Questions: This language uses five cases, though the genitive and dative cases are identical, as are the nominative and accusative.\nDaco-Romanian: Old Questions: Tripthongs occur frequently in this language, as in \"rusaoică,\" while interjections in this language include \"mamă-mamă.\"\nDaco-Romanian: Old Questions: The oldest document written in this language is a letter written in 1521 in the town of Câmpulung, while more recent poets writing in this language include Carmen Sylva and Anton Pann.\nDaco-Romanian: Old Questions: It is more closely related to Dalmatian than to Italian or Spanish, and this language includes the pronouns \"noi,\" \"voi,\" and \"eu\" [\"AY-oo\"] and favors labial consonants such as \"b\" and \"m\" over velars such as \"g\" and \"k.\" For 10 points, name this tongue spoken by the members of O-Zone and Nicolae Ceauşescu, an Eastern Romance language spoken in Bucharest.\nMaine: Old Questions: For 10 points, name this New England state with capital at Augusta.\nMaine: Wikipedia: Transportation\n\nAirports\nMaine receives passenger jet service at its two largest airports, the Portland International Jetport in Portland, and the Bangor International Airport in Bangor.\nMaine: Wikipedia: [121] In 2018, HealthIQ.com named Maine the 3rd most vegan state.\nMaine: Wikipedia: [130]\n\nSee also\nIndex of Maine-related articles\nOutline of Maine\n Maine portal\n New England portal\n United States portal\nMaine: Wikipedia: The lower courts are the District Court, Superior Court and Probate Court.\nMaine: Wikipedia: [117] The state is a major producer of potatoes, wild blueberries, apples, maple syrup and sweet corn.\n",
-        "guess": {
-          "reasoning": "The question refers to a specific musical instrument and its source. The musical instrument is a “choir-organ” played by Florian Fricke’s band. This strongly suggests the game *Myst*.",
-          "answer": "Myst"
-        },
-        "confidence": 0.95
+        "question": "To demonstrate the spontaneity of genetic mutations, Luria and Delbruck infected this organism with bacteriophages.",
+        "answer": "Escherichia_coli"
       },
       {
-        "question": "Dmitry Kabalevsky composed a frequently excerpted example of these dances as the second movement of his suite The Comedians.",
-        "answer": "Galop"
+        "question": "For 10 points, name this phenomenon during which nocturnal animalsare active.",
+        "answer": "Darkness"
       },
       {
-        "question": "He saw his first military action at the Battle of Lake George and, after being captured by Caughnawaga Indians while serving with Rogers Rangers near Crown Point, he narrowly escaped being roasted alive.",
-        "answer": "Israel_Putnam"
+        "question": "The fluid velocity dotted with this function of the fluid velocity gives the convective acceleration.",
+        "answer": "Gradient"
       }
     ],
     "signature": {
-      "instructions": "Analyze the provided `question`, `query`, `context`, and `guess`. Determine the confidence level of the generated answer and return the confidence score as a floating-point number between 0 and 1.",
+      "instructions": "Given the fields `question`, `query`, `context`, `guess`, produce the fields `confidence`.",
       "fields": [
         {
           "prefix": "Question:",
