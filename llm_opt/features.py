@@ -49,27 +49,173 @@ class LengthFeature(Feature):
     def __call__(self, question, run, guess, guess_history, other_guesses=None):
         # How many characters long is the question?
 
-        guess_length = 0
+        # guess_length = len(guess)
+        run_length = len(run)
+        guess_length = len(guess)
 
         # How many words long is the question?
-
-                
-
-        # How many characters long is the guess?
-        if guess is None or guess=="":  
-            yield ("guess", -1)
+        # How many characters long is the run?
+        if run is None or run=="":  
+            yield ("run", -1)         
+        else:                           
+            yield ("run", run_length)
+        
+        if guess is None or guess=='':
+            yield ('guess', -1)
         else:
-            yield ("guess", guess_length)  
-
+            yield ('guess', guess_length)
             
-
-
-
+class StandardizedLengthFeature(Feature):
+    def __init__(self, name):
+        from eval import normalize_answer
+        self.name = name
+        self.normalize = normalize_answer
+        self.char_lengths = []
+        self.word_lengths = []
+        
+    def add_training(self, question_source):
+        import json
+        with gzip.open(question_source) as infile:
+            questions = json.load(infile)
+        for ii in questions:
+            ii_split = ii['text'].split(' ')
+            self.char_lengths.append(len(ii['text']))
+            self.word_lengths.append(len(ii_split))
+            
+    def __call__(self, question, run, guess, guess_history, guesses):
+        # We only use question, run, and guess (same as before)
+        # guess_history and guesses are ignored since we don't need them
+        import numpy as np
+        yield('std_char_length', (len(run) - np.mean(self.char_lengths)) / np.var(self.char_lengths))
+        yield('std_word_length', (len(run.split(' ')) - np.mean(self.word_lengths)) / np.var(self.word_lengths))
+        yield('guess_length', len(guess))
+        
+    
         
         
+class GuessBlankFeature(Feature):
+    """
+    Is guess blank?
+    """
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        yield ('true', len(guess) == 0)
 
 
+class GuessCapitalsFeature(Feature):
+    """
+    Capital letters in guess
+    """
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        yield ('true', log(sum(i.isupper() for i in guess) + 1))
+        
 
+# Somehow latch on to the indicator? Will rule out things like this
+class NumberThisFeature(Feature):
+    """
+    Returns the number of occurrences of "this" or "these" in the run
+    """
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        run_split = run.split(' ')
+        count = 0
+        for word in run_split:
+            # Latch on to the first word after "this" or "these"
+            if word == 'this':
+                count += 1
+        yield ('NumberThis', count)
+                
+class SentencesReadFeature(Feature):
+    """
+    Returns how many sentences have been read divided by number of total sentences in the question
+    (crudely defined as the number of periods in the run/question respectively.)
+    """
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        
+        r_count = 0
+        
+        for char in run:
+            if char == '.':
+                r_count += 1
+        
+        yield ('SentencesRead', r_count)
+
+class AppearedInRunFeature(Feature):
+    """
+    Returns whether the guess has appeared in the run or not
+    """
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        yield ('in_run', int(guess.lower() in run.lower()))
+    # Ex. prevents a guess of "saga" when saga is already heard
+
+class IndicatorFeature(Feature):
+    """
+    Latch on to the first word that appears in the run after the word "this".
+    Look through the training data and see if there are any questions with the indicator `indicator` and the answer `guess`.
+    Return 1 if true, return 0 if false
+    """
+    def __init__(self, name):
+        from eval import normalize_answer
+        self.name = name
+        self.ia_pairs = []
+        self.normalize = normalize_answer
+    
+    def get_indicator(self, text):
+        import re
+        """
+        Latches on to the first word that comes after this or these, and returns that as the "indicator"
+        """
+        text_split = text.lower().split(' ')
+        for i in range(len(text_split)-1):
+            word = text_split[i]
+            if word == 'this' or word == 'these':
+                indicator = text_split[i+1].rstrip("'s") # Crude removal of possessive case
+                indicator = re.sub(r'[^a-zA-Z]+$', '', indicator)
+                return indicator
+        return ''
+    
+    def add_training(self, question_source):
+        import json
+        with gzip.open(question_source) as infile:
+            questions = json.load(infile)
+        for ii in questions:
+            self.ia_pairs.append((self.get_indicator(ii['text']), self.normalize(ii['answer'])))
+    
+    def __call__(self, question, run, guess, guess_history, other_guesses=None):
+        to_return = ('indicator', 0)
+        indicator = self.get_indicator(run)
+        normalized_guess = self.normalize(guess)
+        for i, a in self.ia_pairs:
+            if (normalized_guess in a) and indicator == i:
+                to_return = ('indicator', 1)
+                break
+        
+        yield to_return
+            
+        
+        # Now look through the training data. 
+        # Do any questions whose answer is `guess` have a question with the indicator of `indicator`?
+        # If so return 1, if not return 0
+        
+class FrequencyFeature:
+    def __init__(self, name):
+        from eval import normalize_answer
+        self.name = name
+        self.counts = Counter()
+        self.normalize = normalize_answer
+        
+    def add_training(self, question_source):
+        import json
+        with gzip.open(question_source) as infile:
+            questions = json.load(infile)
+        for ii in questions:
+            self.counts[self.normalize(ii["page"])] += 1
+            
+    def __call__(self, question, run, guess, guess_history, guesses):
+        # We only use question, run, and guess (same as before)
+        # guess_history and guesses are ignored since we don't need them
+        
+        frequency_value = log(1 + self.counts[self.normalize(guess)])
+        yield ("guess", frequency_value)
+    
 
 if __name__ == "__main__":
     """
