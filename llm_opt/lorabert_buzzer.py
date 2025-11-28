@@ -102,7 +102,6 @@ class LinearLoRA(torch.nn.Module):
         self.linear = linear
 
         # Initialize the LoRA layer
-        # TODO: figure out what the indim and oudtdim are!
         self.lora = LoRALayer(in_dim=linear.in_features, out_dim=linear.out_features, rank=rank, alpha=alpha)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -124,10 +123,15 @@ def add_lora(model: torch.nn.Module, rank: int, alpha: float,
         alpha: The scaling factor for the LoRA matrices.
         modules_to_adapt: The key of the dictionary is the model component to adapt (e.g., "attention" or "ffn"), and the values are specific linear layers in that component to adapt.  Anything in this dictionary will be adapted, but anything else will remain frozen.
     """
-    for component in modules_to_adapt: # component: str
-        for layer in modules_to_adapt[component]:
-            new_lora = LoRALayer(in_dim=1, out_dim=1, rank=rank, alpha=alpha)
-
+    # print('MTA', modules_to_adapt)
+    for layer in model.layer:
+        for component_name in modules_to_adapt:
+            component = getattr(layer, component_name)
+            for module_name in modules_to_adapt[component_name]:
+                module = getattr(component, module_name)
+                new_lora_layer = LinearLoRA(module, rank, alpha)
+                setattr(component, module_name, new_lora_layer)
+            
     return model
                 
 
